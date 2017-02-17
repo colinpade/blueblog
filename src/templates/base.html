@@ -3,6 +3,16 @@
   <title>BlueBlog</title>
 </head>
 <body>
+  {% block header %}
+  <ul>
+    {% if request.user.is_authenticated %}
+    <li><a href="">Logout</a></li>
+    {% else %}
+    <li><a href="">Login</a></li>
+    <li><a href="{% url "user_registration"%}">Register Account</a></li>
+    {% endif %}
+  </ul>
+  {% endblock %}
   {% block content %}
   {% endblock %}
 </body>
